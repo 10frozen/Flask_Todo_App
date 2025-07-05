@@ -1,0 +1,241 @@
+/* BASE RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FAFFEE;
+    color: #1D503A;
+    line-height: 1.6;
+    padding: 0 1rem;
+}
+
+/* HEADER */
+header {
+    background-color: #1D503A;
+    color: #FAFFEE;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+nav a {
+    color: #FAFFEE;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* MAIN CONTAINER */
+.container {
+    max-width: 960px;
+    margin: auto;
+    padding: 1rem;
+}
+
+/* FLASH MESSAGES */
+.flash {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.flash.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.flash.danger {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+.flash.info {
+    background-color: #d9edf7;
+    color: #31708f;
+}
+
+.flash.warning {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+}
+
+/* FORMS */
+form {
+    margin-top: 1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    background: #fff;
+    color: #1D503A;
+}
+
+/* BUTTONS */
+button,
+.btn {
+    background-color: #1D503A;
+    color: #FAFFEE;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #163c2c;
+}
+
+.btn-clear {
+    background-color: #a94442;
+}
+
+.btn-clear:hover {
+    background-color: #822e2b;
+}
+
+/* AUTH / TASK BOXES */
+.auth-box, .task-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(29, 80, 58, 0.1);
+    margin-bottom: 2rem;
+}
+
+/* TABLES */
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.task-table th,
+.task-table td {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.task-table th {
+    background-color: #1D503A;
+    color: #FAFFEE;
+}
+
+.task-table td {
+    background-color: #fff;
+}
+
+/* BADGES */
+.badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.badge.pending {
+    background-color: #6c757d;
+}
+
+.badge.working {
+    background-color: #ffc107;
+    color: #1D503A;
+}
+
+.badge.done {
+    background-color: #28a745;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 1.2rem 0;
+    border-top: 1px solid #ccc;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        margin-top: 0.5rem;
+    }
+
+    .task-form input[type="text"] {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .task-form button {
+        width: 100%;
+    }
+
+    .task-table,
+    .task-table thead,
+    .task-table tbody,
+    .task-table th,
+    .task-table td,
+    .task-table tr {
+        display: block;
+    }
+
+    .task-table tr {
+        margin-bottom: 1rem;
+    }
+
+    .task-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .task-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
