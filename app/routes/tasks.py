@@ -39,17 +39,28 @@ def add_task():
 def toggle_status(task_id):
     user_id = session.get('user_id')
     task = Task.query.filter_by(id=task_id, user_id=user_id).first()
+
     if task:
         if task.status == 'Pending':
             task.status = 'Working'
+            db.session.commit()
+            flash("Task marked as Working.", 'info')
+
         elif task.status == 'Working':
             task.status = 'Done'
-        else:
-            task.status = 'Pending'
-        db.session.commit()
+            db.session.commit()
+            flash("Task marked as Done.", 'success')
+
+        elif task.status == 'Done':
+            db.session.delete(task)
+            db.session.commit()
+            flash("Task completed and deleted.", 'success')
+
     else:
         flash('Task not found or unauthorized.', 'danger')
+
     return redirect(url_for('tasks.view_tasks'))
+
 
 @tasks_bp.route('/clear', methods=['POST'])
 @login_required
